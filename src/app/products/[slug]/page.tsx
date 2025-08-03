@@ -60,6 +60,46 @@ export default function ProductPage() {
   ])
   const [currentBuyerIndex, setCurrentBuyerIndex] = useState(0)
 
+  // Enhanced customer testimonials with before/after
+  const customerTestimonials = [
+    {
+      name: "Amanda R.",
+      age: 34,
+      location: "Seattle, WA",
+      timeUsed: "2 months",
+      beforeImage: "/images/testimonials/before-1.jpg",
+      afterImage: "/images/testimonials/after-1.jpg",
+      rating: 5,
+      title: "Life-Changing Water Quality",
+      testimonial: "After 2 months of using the HydraLux filter daily, my skin is the best it's been in years. The difference in water taste was immediate, but the skin benefits took a few weeks to show. My family's health has improved dramatically - we're all drinking more water now!",
+      benefits: ["Clearer skin", "Better hydration", "Improved taste", "Family health boost"]
+    },
+    {
+      name: "Marcus K.",
+      age: 42,
+      location: "Austin, TX",
+      timeUsed: "4 months",
+      beforeImage: "/images/testimonials/before-2.jpg",
+      afterImage: "/images/testimonials/after-2.jpg",
+      rating: 5,
+      title: "Amazing Results for My Family",
+      testimonial: "We've been using HydraLux for four months now and I've noticed improvements with each week! My wife was skeptical at first, but now she's the biggest advocate. Our kids are drinking more water, our coffee tastes incredible, and our skin feels so much softer.",
+      benefits: ["Family-wide health improvement", "Better coffee taste", "Softer skin", "Increased water consumption"]
+    },
+    {
+      name: "Dr. Lisa Chen",
+      age: 38,
+      location: "San Francisco, CA",
+      timeUsed: "6 months",
+      beforeImage: "/images/testimonials/before-3.jpg",
+      afterImage: "/images/testimonials/after-3.jpg",
+      rating: 5,
+      title: "Recommended by Professionals",
+      testimonial: "As a physician, I'm very particular about what I recommend to patients. HydraLux exceeded my expectations. The scientific backing is solid, and the results speak for themselves. My patients who've switched report better hydration, improved skin, and increased energy levels.",
+      benefits: ["Professional-grade quality", "Scientific backing", "Patient-approved", "Medical endorsement"]
+    }
+  ]
+
   // Social proof rotation and testimonial rotation
   useEffect(() => {
     const buyerInterval = setInterval(() => {
@@ -167,46 +207,6 @@ export default function ProductPage() {
     { id: 'specifications', label: 'Specifications' },
     { id: 'reviews', label: 'Reviews' },
     { id: 'faq', label: 'FAQ' }
-  ]
-
-  // Enhanced customer testimonials with before/after
-  const customerTestimonials = [
-    {
-      name: "Amanda R.",
-      age: 34,
-      location: "Seattle, WA",
-      timeUsed: "2 months",
-      beforeImage: "/images/testimonials/before-1.jpg",
-      afterImage: "/images/testimonials/after-1.jpg",
-      rating: 5,
-      title: "Life-Changing Water Quality",
-      testimonial: "After 2 months of using the HydraLux filter daily, my skin is the best it's been in years. The difference in water taste was immediate, but the skin benefits took a few weeks to show. My family's health has improved dramatically - we're all drinking more water now!",
-      benefits: ["Clearer skin", "Better hydration", "Improved taste", "Family health boost"]
-    },
-    {
-      name: "Marcus K.",
-      age: 42,
-      location: "Austin, TX",
-      timeUsed: "4 months",
-      beforeImage: "/images/testimonials/before-2.jpg",
-      afterImage: "/images/testimonials/after-2.jpg",
-      rating: 5,
-      title: "Amazing Results for My Family",
-      testimonial: "We've been using HydraLux for four months now and I've noticed improvements with each week! My wife was skeptical at first, but now she's the biggest advocate. Our kids are drinking more water, our coffee tastes incredible, and our skin feels so much softer.",
-      benefits: ["Family-wide health improvement", "Better coffee taste", "Softer skin", "Increased water consumption"]
-    },
-    {
-      name: "Dr. Lisa Chen",
-      age: 38,
-      location: "San Francisco, CA",
-      timeUsed: "6 months",
-      beforeImage: "/images/testimonials/before-3.jpg",
-      afterImage: "/images/testimonials/after-3.jpg",
-      rating: 5,
-      title: "Recommended by Professionals",
-      testimonial: "As a physician, I'm very particular about what I recommend to patients. HydraLux exceeded my expectations. The scientific backing is solid, and the results speak for themselves. My patients who've switched report better hydration, improved skin, and increased energy levels.",
-      benefits: ["Professional-grade quality", "Scientific backing", "Patient-approved", "Medical endorsement"]
-    }
   ]
 
   // Enhanced FAQs with more comprehensive answers
