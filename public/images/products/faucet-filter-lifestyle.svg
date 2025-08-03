@@ -1,0 +1,56 @@
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa"/>
+      <stop offset="50%" style="stop-color:#e9ecef"/>
+      <stop offset="100%" style="stop-color:#d6d8db"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="600" fill="#f8fafc"/>
+  
+  <!-- Kitchen counter surface -->
+  <rect x="0" y="400" width="600" height="200" fill="#f1f5f9"/>
+  
+  <!-- Faucet base -->
+  <ellipse cx="300" cy="450" rx="80" ry="20" fill="url(#chrome)"/>
+  
+  <!-- Faucet stem -->
+  <rect x="280" y="350" width="40" height="100" fill="url(#chrome)" rx="20"/>
+  
+  <!-- Faucet spout -->
+  <path d="M 320 370 Q 380 360 400 390 Q 410 400 400 410 Q 380 420 320 410 Z" fill="url(#chrome)"/>
+  
+  <!-- Filter attachment -->
+  <ellipse cx="400" cy="400" rx="25" ry="35" fill="url(#chrome)"/>
+  
+  <!-- Filter cartridge (blue) -->
+  <rect x="385" y="390" width="30" height="20" fill="url(#blue)" rx="15"/>
+  
+  <!-- Water droplets -->
+  <circle cx="420" cy="430" r="3" fill="#06b6d4" opacity="0.8"/>
+  <circle cx="425" cy="440" r="2" fill="#06b6d4" opacity="0.6"/>
+  <circle cx="415" cy="445" r="2.5" fill="#06b6d4" opacity="0.7"/>
+  
+  <!-- Filter indicator light -->
+  <circle cx="410" cy="385" r="3" fill="#10b981"/>
+  
+  <!-- Brand logo -->
+  <text x="300" y="150" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#2563eb">HydraLux</text>
+  <text x="300" y="180" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#64748b">Faucet Water Filter</text>
+  
+  <!-- Features callouts -->
+  <circle cx="150" cy="250" r="40" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="150" y="255" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0369a1">NSF</text>
+  <text x="150" y="290" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#64748b">Certified</text>
+  
+  <circle cx="450" cy="250" r="40" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+  <text x="450" y="250" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#059669">99%</text>
+  <text x="450" y="260" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#059669">Pure</text>
+  <text x="450" y="290" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#64748b">Filtration</text>
+</svg>

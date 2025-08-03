@@ -4,10 +4,11 @@ import { useState } from "react"
 import Link from "next/link"
 import { Menu, X, ShoppingCart, Search, User } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useCart } from "@/contexts/CartContext"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [cartCount] = useState(0) // Will be connected to cart state later
+  const { cart } = useCart()
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
@@ -56,14 +57,14 @@ export default function Header() {
             <button className="p-2 text-gray-700 hover:text-blue-600 transition-colors">
               <User className="w-5 h-5" />
             </button>
-            <button className="relative p-2 text-gray-700 hover:text-blue-600 transition-colors">
+            <Link href="/cart" className="relative p-2 text-gray-700 hover:text-blue-600 transition-colors">
               <ShoppingCart className="w-5 h-5" />
-              {cartCount > 0 && (
+              {cart.itemCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                  {cartCount}
+                  {cart.itemCount}
                 </span>
               )}
-            </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -107,10 +108,10 @@ export default function Header() {
                   <User className="w-5 h-5" />
                   <span>Account</span>
                 </button>
-                <button className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors">
+                <Link href="/cart" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors">
                   <ShoppingCart className="w-5 h-5" />
-                  <span>Cart ({cartCount})</span>
-                </button>
+                  <span>Cart ({cart.itemCount})</span>
+                </Link>
               </div>
             </div>
           </motion.div>

@@ -20,6 +20,7 @@ import {
 } from "lucide-react"
 import { products, getFeaturedProducts } from "@/data/products"
 import { formatPrice } from "@/lib/utils"
+import AddToCartButton from "@/components/ui/AddToCartButton"
 
 export default function HomePage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
@@ -93,7 +94,9 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23e0f2fe" fill-opacity="0.4"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0 bg-blue-50/20 bg-[radial-gradient(circle_at_50%_50%,theme(colors.blue.100),transparent_50%)]"></div>
+        </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -209,8 +212,14 @@ export default function HomePage() {
                 className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
               >
                 <div className="relative">
-                  <div className="aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center">
-                    <Droplets className="w-16 h-16 text-blue-500" />
+                  <div className="aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 rounded-xl overflow-hidden">
+                    <Image
+                      src={product.images[0]}
+                      alt={product.name}
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   {product.originalPrice && (
                     <div className="absolute top-4 right-4 bg-red-500 text-white px-2 py-1 rounded text-sm font-bold">
@@ -249,9 +258,10 @@ export default function HomePage() {
                   </div>
                   
                   <div className="flex gap-3">
-                    <button className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
-                      Add to Cart
-                    </button>
+                    <AddToCartButton 
+                      product={product}
+                      className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                    />
                     <Link 
                       href={`/products/${product.slug}`}
                       className="px-4 py-3 border border-gray-300 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-colors flex items-center justify-center"

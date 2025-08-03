@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { 
   Star, 
@@ -14,6 +15,7 @@ import {
 } from "lucide-react"
 import { products } from "@/data/products"
 import { formatPrice } from "@/lib/utils"
+import AddToCartButton from "@/components/ui/AddToCartButton"
 
 export default function ProductsPage() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
@@ -124,8 +126,14 @@ export default function ProductsPage() {
                 >
                   <Link href={`/products/${product.slug}`}>
                     <div className="relative">
-                      <div className="aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center">
-                        <Droplets className="w-16 h-16 text-blue-500" />
+                      <div className="aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 rounded-xl overflow-hidden">
+                        <Image
+                          src={product.images[0]}
+                          alt={product.name}
+                          width={400}
+                          height={400}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                       {product.originalPrice && (
                         <div className="absolute top-4 right-4 bg-red-500 text-white px-2 py-1 rounded text-sm font-bold">
@@ -167,9 +175,10 @@ export default function ProductsPage() {
                     </div>
                     
                     <div className="flex gap-2">
-                      <button className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-2 px-4 rounded-lg font-semibold text-sm hover:shadow-lg transition-all duration-300">
-                        Add to Cart
-                      </button>
+                      <AddToCartButton 
+                        product={product}
+                        className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-2 px-4 rounded-lg font-semibold text-sm hover:shadow-lg transition-all duration-300"
+                      />
                       <Link 
                         href={`/products/${product.slug}`}
                         className="px-3 py-2 border border-gray-300 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-colors flex items-center justify-center"
@@ -193,8 +202,14 @@ export default function ProductsPage() {
                 >
                   <div className="flex flex-col lg:flex-row">
                     <Link href={`/products/${product.slug}`} className="lg:w-1/3">
-                      <div className="relative aspect-square lg:aspect-auto lg:h-48 bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center">
-                        <Droplets className="w-16 h-16 text-blue-500" />
+                      <div className="relative aspect-square lg:aspect-auto lg:h-48 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-xl overflow-hidden">
+                        <Image
+                          src={product.images[0]}
+                          alt={product.name}
+                          width={400}
+                          height={400}
+                          className="w-full h-full object-cover"
+                        />
                         {product.originalPrice && (
                           <div className="absolute top-4 right-4 bg-red-500 text-white px-2 py-1 rounded text-sm font-bold">
                             25% OFF
@@ -240,10 +255,10 @@ export default function ProductsPage() {
                           </div>
                           
                           <div className="flex gap-3">
-                            <button className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex items-center">
-                              <ShoppingCart className="w-4 h-4 mr-2" />
-                              Add to Cart
-                            </button>
+                            <AddToCartButton 
+                              product={product}
+                              className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex items-center"
+                            />
                             <Link 
                               href={`/products/${product.slug}`}
                               className="px-6 py-3 border border-gray-300 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-colors flex items-center"

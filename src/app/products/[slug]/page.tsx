@@ -24,6 +24,7 @@ import {
 } from "lucide-react"
 import { getProductBySlug, products } from "@/data/products"
 import { formatPrice } from "@/lib/utils"
+import AddToCartButton from "@/components/ui/AddToCartButton"
 
 export default function ProductPage() {
   const params = useParams()
@@ -160,22 +161,34 @@ export default function ProductPage() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Product Images */}
           <div>
-            <div className="aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden">
-              <Droplets className="w-32 h-32 text-blue-500" />
+            <div className="aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl mb-4 overflow-hidden relative">
+              <Image
+                src={product.images[selectedImage]}
+                alt={product.name}
+                width={600}
+                height={600}
+                className="w-full h-full object-cover"
+              />
               <button className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
                 <Play className="w-16 h-16 text-white" />
               </button>
             </div>
             <div className="grid grid-cols-4 gap-4">
-              {product.images.map((_, index) => (
+              {product.images.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg flex items-center justify-center ${
+                  className={`aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg overflow-hidden ${
                     selectedImage === index ? 'ring-2 ring-blue-500' : ''
                   }`}
                 >
-                  <Droplets className="w-8 h-8 text-blue-500" />
+                  <Image
+                    src={image}
+                    alt={`${product.name} view ${index + 1}`}
+                    width={150}
+                    height={150}
+                    className="w-full h-full object-cover"
+                  />
                 </button>
               ))}
             </div>
@@ -287,10 +300,11 @@ export default function ProductPage() {
               </div>
 
               <div className="flex gap-4 mb-4">
-                <button className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center">
-                  <ShoppingCart className="w-5 h-5 mr-2" />
-                  Add to Cart
-                </button>
+                <AddToCartButton 
+                  product={product}
+                  quantity={quantity}
+                  className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center"
+                />
                 <button
                   onClick={() => setIsWishlisted(!isWishlisted)}
                   className={`p-4 border border-gray-300 rounded-lg transition-colors ${
@@ -459,8 +473,14 @@ export default function ProductPage() {
             {relatedProducts.map((relatedProduct) => (
               <Link key={relatedProduct.id} href={`/products/${relatedProduct.slug}`}>
                 <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden">
-                  <div className="aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center">
-                    <Droplets className="w-16 h-16 text-blue-500" />
+                  <div className="aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 overflow-hidden">
+                    <Image
+                      src={relatedProduct.images[0]}
+                      alt={relatedProduct.name}
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="p-4">
                     <h3 className="font-semibold text-gray-900 mb-2">{relatedProduct.name}</h3>

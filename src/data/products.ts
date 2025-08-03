@@ -28,10 +28,10 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 342,
     images: [
-      "/images/faucet-filter-1.jpg",
-      "/images/faucet-filter-2.jpg",
-      "/images/faucet-filter-3.jpg",
-      "/images/faucet-filter-unboxing.jpg"
+      "/images/products/faucet-filter-main.svg",
+      "/images/products/faucet-filter-installed.svg",
+      "/images/products/faucet-filter-lifestyle.svg",
+      "/images/products/faucet-filter-unboxing.svg"
     ],
     features: [
       "Removes 99% of chlorine and bad taste",
@@ -64,10 +64,10 @@ export const products: Product[] = [
     rating: 4.9,
     reviewCount: 567,
     images: [
-      "/images/adventure-bottle-1.jpg",
-      "/images/adventure-bottle-2.jpg",
-      "/images/adventure-bottle-3.jpg",
-      "/images/adventure-bottle-action.jpg"
+      "/images/products/adventure-bottle-main.svg",
+      "/images/products/adventure-bottle-outdoor.svg",
+      "/images/products/adventure-bottle-lifestyle.svg",
+      "/images/products/adventure-bottle-action.svg"
     ],
     features: [
       "Removes 99.99% of bacteria and parasites",
@@ -100,10 +100,10 @@ export const products: Product[] = [
     rating: 4.7,
     reviewCount: 289,
     images: [
-      "/images/shower-head-1.jpg",
-      "/images/shower-head-2.jpg",
-      "/images/shower-head-3.jpg",
-      "/images/shower-head-installed.jpg"
+      "/images/products/shower-head-main.svg",
+      "/images/products/shower-head-close-up.svg",
+      "/images/products/shower-head-lifestyle.svg",
+      "/images/products/shower-head-installed.svg"
     ],
     features: [
       "Increases water pressure up to 200%",
@@ -136,10 +136,10 @@ export const products: Product[] = [
     rating: 4.6,
     reviewCount: 178,
     images: [
-      "/images/bidet-sprayer-1.jpg",
-      "/images/bidet-sprayer-2.jpg",
-      "/images/bidet-sprayer-3.jpg",
-      "/images/bidet-sprayer-installed.jpg"
+      "/images/products/bidet-sprayer-main.svg",
+      "/images/products/bidet-sprayer-detail.svg",
+      "/images/products/bidet-sprayer-lifestyle.svg",
+      "/images/products/bidet-sprayer-installed.svg"
     ],
     features: [
       "Dual nozzles with adjustable pressure",
